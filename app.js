@@ -20,9 +20,7 @@ function searchQuery (query){
     for (key in temp){
         out += `((?=.*${key}){${temp[key]}})`
     }
-    console.log(out)
     regex = `\\b${out}\\w+\\b`
-    console.log(regex)
 
     return new RegExp(regex)
     
@@ -31,4 +29,7 @@ function searchQuery (query){
 
 INPUT.addEventListener('change', () => {
     populateField(searchQuery(INPUT.value));
+    const textarea = document.querySelector("textarea");
+    const height = textarea.scrollHeight;
+    textarea.style.height = height + "px";
 })

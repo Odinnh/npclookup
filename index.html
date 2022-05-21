@@ -10,15 +10,17 @@
         <title>NPC lookup</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://unpkg.com/open-props">
+        <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <section>
             <input type="text" name="containLetters" id="searchQuery">
-            <button type="submit" id="searchNames">search</button>
+            <button type="submit" id="searchNames" >search</button>
         </section>
         
-        <textarea id="npcNames"></textarea>
+        <textarea id="npcNames" readonly ></textarea>
         
         <script src="npcArray.js" async defer></script>
         <script src="app.js" async defer></script>
