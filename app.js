@@ -9,7 +9,6 @@ function populateField(regex){
         response += ((i.search(regex) > -1)? `<a href="https://osrs.wiki/${i}" target="_blank">${i}</a></br>` :'')
     })
     RESULTS.innerHTML = (response ==''?`\n No NPC found with "${INPUT.value}" in their name, try something different \n`:response)
-    console.log(RESULTS.innerHTML)
 }
 
 function searchQuery (query){
@@ -22,10 +21,8 @@ function searchQuery (query){
     })
     for (key in temp){
         let tempkey = key
-        console.log(key)
         tempkey = (key.search(/[[\]\\\^\*\+\?\{\}\|\(\)\$\.]/) == 0)?'\\' + key: key
         out += `((?=.*${tempkey}){${temp[key]}})`
-        console.log(out)
     }
     regex = `\\b${out}\\w+\\b`
 
