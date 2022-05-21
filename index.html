@@ -16,13 +16,20 @@
     </head>
     <body>
         <section>
-            <input type="text" name="containLetters" id="searchQuery">
+            <input type="text" name="containLetters" id="searchQuery" placeholder="Enter characters here..." />
             <button type="submit" id="searchNames" >search</button>
         </section>
         
         <textarea id="npcNames" readonly ></textarea>
         
-        <script src="npcArray.js" async defer></script>
-        <script src="app.js" async defer></script>
+        <script src="npcArray.js"></script>
+        <script src="app.js"></script>
+        <script>
+            INPUT.value = 'monkey'
+            INPUT.focus();
+        renderField()
+        </script>
+        
+        
     </body>
 </html>
