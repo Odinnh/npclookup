@@ -4,11 +4,11 @@ const TEXTAREA = document.querySelector("textarea");
 
 function populateField(regex){
     RESULTS.innerHTML = ''
-    let test = ''
+    let response = ''
     allNPC.forEach(i => {
-        test += ((i.search(regex) > -1)? i + '\n' :'')
+        response += ((i.search(regex) > -1)? `<a href="https://osrs.wiki/${i}" target="_blank">${i}</a></br>` :'')
     })
-    RESULTS.innerHTML = (test ==''?`\n No NPC found with "${INPUT.value}" in their name, try something different \n`:test)
+    RESULTS.innerHTML = (response ==''?`\n No NPC found with "${INPUT.value}" in their name, try something different \n`:response)
     console.log(RESULTS.innerHTML)
 }
 
@@ -34,10 +34,7 @@ function searchQuery (query){
 }
 
 function renderField(){ 
-    TEXTAREA.style.height = '0' + "px";
     populateField(searchQuery(INPUT.value));
-    const height = TEXTAREA.scrollHeight;
-    TEXTAREA.style.height = height + "px";
 }
 
 INPUT.addEventListener('change', ()=>{

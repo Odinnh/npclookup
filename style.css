@@ -1,8 +1,7 @@
 * {
     box-sizing: border-box;
-
 }
-body{
+body, section{
     background-color:var(--gray-9);
     display:flex;
     flex-direction:column;
@@ -10,13 +9,25 @@ body{
     align-items: center;
     gap:1rem;
 }
-section, textarea{
+body{
+    justify-content: space-between;
+}
+#searchbar, #npcNames, header{
     width:80vw;
+}
+header{
+    padding-top:var(--size-4);
+    font-size: var(--size-7);
+    font-weight:var(--font-weight-9);
 }
 
 input{
+    background-color:#171a1c;
     width:calc(80vw / 100 * 80);
     margin-right:20px;
+}
+a, a:visited{
+    color:var(--yellow-6)
 }
 button{
     width:calc(80vw / 100 * 20 - 20px);
@@ -35,7 +46,7 @@ button:active{
     background-color:var(--yellow-9);
     padding: var(--size-1) var(--size-2);
 }
-section{
+#searchbar{
     width:calc(100%);
     display:flex;
     align-items: center;
@@ -47,8 +58,18 @@ section{
     padding-bottom:2.5rem;
     margin-bottom:-.5rem;
 }
-textarea{
+#npcNames{
+    width:calc(80vw - 2px);
+    color:var(--red-9);
+    border-radius: var(--radius-2);
+    padding: var(--size-4) var(--size-4);
+    background-color:#171a1c;
     cursor: auto;
     resize: none;
     margin-bottom:2rem;
+}
+footer{
+    text-align: center;
+    padding-bottom: var(--size-4);
+
 }

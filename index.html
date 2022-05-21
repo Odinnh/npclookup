@@ -16,16 +16,24 @@
     </head>
     <body>
         <section>
+        <header>
+            Old School Runescape NPC lookup
+        </header>
+        <div id=searchbar>
             <input type="text" name="containLetters" id="searchQuery" placeholder="Enter characters here..." />
             <button type="submit" id="searchNames" >search</button>
-        </section>
+        </div>
         
-        <textarea id="npcNames" readonly ></textarea>
+        <div id="npcNames" readonly ></div>
+        </section>
+        <footer>
+            made by <a href="http://odinn.nl">Odinn Hullekes</a>.</br><sub>'Runescape', 'Old School Runescape', 'Jagex' and Jagex ltd brands are copyright of Jagex ltd.</sub>
+        </footer>
         
         <script src="npcArray.js"></script>
         <script src="app.js"></script>
         <script>
-            INPUT.value = 'monkey'
+            INPUT.value = 'Wise Old Man'
             INPUT.focus();
         renderField()
         </script>
