@@ -22,15 +22,16 @@ header{
 }
 
 input{
+    flex: 1 1 auto;
     background-color:#171a1c;
-    width:calc(80vw / 100 * 80);
     margin-right:20px;
 }
 a, a:visited{
     color:var(--yellow-6)
 }
 button{
-    width:calc(80vw / 100 * 20 - 20px);
+    flex: 0 1 200px;
+    min-width:100px;
     background-color:var(--yellow-6);
     color:var(--gray-9);
 
