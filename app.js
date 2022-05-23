@@ -17,16 +17,16 @@ WIKI.send(options, continueQuery)
 function continueQuery(data) {
     options.cmcontinue = data.continue?.cmcontinue
     for (let npc of data.query?.categorymembers) {
+
         allNPC.push(npc.title)
     }
-    if (options.cmcontinue !== undefined) {
-        WIKI.send(options, continueQuery)
+    if (options.cmcontinue == undefined) {
+        INPUT.value = 'Wise Old Man'
+        INPUT.focus();
+        renderField()
+        return
     }
-
-    INPUT.value = 'Wise Old Man'
-    INPUT.focus();
-    renderField()
-    return
+    WIKI.send(options, continueQuery)
 
 }
 
@@ -34,8 +34,10 @@ function populateField(regex) {
     RESULTS.innerHTML = ''
     let response = ''
     allNPC.forEach(i => {
-        if (allNPC[i] == '? ? ? ?') console.log('found him')
-        response += ((i.search(regex) > -1) ? `<a href="https://osrs.wiki/${i}" target="_blank">${i}</a></br>` : '')
+        i = ('? ? ? ?'==i)?'&#63; &#63; &#63; &#63;':i
+        if (i.search(regex) > -1) {
+            response +=`<a href="https://osrs.wiki/${('&#63; &#63; &#63; &#63;'==i)?'%3f %3f %3f %3f':i}" target="_blank">${i}</a></br>`
+        }
     })
     RESULTS.innerHTML = (response == '' ? `\n No NPC found with "${INPUT.value}" in their name, try something different \n` : response)
 }
@@ -46,11 +48,12 @@ function searchQuery(query) {
     query = query.split(' ').join('')
     let regex = query.split('')
     regex.forEach((element) => {
+        element = (element =='?')? '&#63;':element
         temp[element] = (temp[element] > 0) ? temp[element] + 1 : 1;
     })
     for (key in temp) {
         let tempkey = key
-        tempkey = (key.search(/[[\]\\\^\*\+\?\{\}\|\(\)\$\.]/) == 0) ? '\\' + key : key
+        tempkey = (tempkey.search(/[[\]\\\^\*\+\?\{\}\|\(\)\$\.]/) == 0) ? '\\' + tempkey : tempkey
         out += `((?=.*${tempkey}){${temp[key]}})`
     }
     regex = `\\b${out}\\w+\\b`
