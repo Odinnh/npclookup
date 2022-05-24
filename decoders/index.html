@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Decoders</title>
+    <meta name="description" content="Decoders and decrypters">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon//favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/open-props">
+    <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css">
+    <script src="hex2text.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <section>
+        <header>
+            Decoders and decrypters
+        </header>
+        <div id=searchbar>
+
+            <textarea rows="1" type="text" name="containLetters" id="query"
+                placeholder="Enter characters here..."></textarea>
+  
+            <div class="dropdown">
+              <span style="padding-right: 5px;">Hex 2 Text</span><i class="fa-solid fa-caret-down"></i>
+              <!-- <div class="dropdown-content">
+                <p>Hex 2 Text</p>
+                <p>Vigerene</p>
+                <p>Hello World!</p>
+              </div> -->
+            </div>
+        </div>
+
+        <pre id="output" readonly></pre>
+    </section>
+    <footer>
+        made by <a href="http://odinn.nl">Odinn Hullekes</a>.
+    </footer>
+    <script>
+        let OUTPUT = document.querySelector('#output')
+        let QUERY = document.querySelector('#query')
+        QUERY.addEventListener('keyup', resizeinput)
+        function resizeinput() {
+            var a = QUERY
+            a.rows = '1'
+            a.rows = parseInt(a.scrollHeight / parseInt(getComputedStyle(a).lineHeight))
+        }
+        document.addEventListener('keyup', decode);
+        function decode() {
+            OUTPUT.innerHTML = hexToText(QUERY.value)
+        }
+    </script>
+</body>
+
+</html>

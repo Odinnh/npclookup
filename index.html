@@ -18,7 +18,6 @@
         <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css">
         <link rel="stylesheet" href="style.css">
         <script src="api/MediawikiJS.js"></script>
-        <!-- <script src="npcArray.js"></script> -->
     </head>
     <body>
         <section>
@@ -26,11 +25,11 @@
             Old School Runescape NPC lookup
         </header>
         <div id=searchbar>
-            <input type="text" name="containLetters" id="searchQuery" placeholder="Enter characters here..." />
+            <input type="text" name="containLetters" id="query" placeholder="Enter characters here..." />
             <button type="submit" id="searchNames" >search</button>
         </div>
         
-        <div id="npcNames" readonly ></div>
+        <div id="output" readonly ></div>
         </section>
         <footer>
             made by <a href="http://odinn.nl">Odinn Hullekes</a>.</br><sub>'Runescape', 'Old School Runescape', 'Jagex' and Jagex ltd brands are copyright of Jagex ltd.</sub>

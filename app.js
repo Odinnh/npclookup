@@ -1,6 +1,5 @@
-const RESULTS = document.querySelector('#npcNames')
-const INPUT = document.querySelector('#searchQuery')
-const TEXTAREA = document.querySelector("textarea");
+const RESULTS = document.querySelector('#output')
+const INPUT = document.querySelector('#query')
 
 const WIKI = MediaWikiJS('https://oldschool.runescape.wiki')
 let allNPC = []
